@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <h3 style="text-align:center">{{ search | title}}</h3>
+    <div class="row">
+        {% for post in final_postings %}
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <a href="{{ post.1 }}"><img src="{{ post.2 }}" alt=""></a>
+                </div>
+                <div class="card-content">
+                    <p>{{ post.0 }}</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{ post.1 }}">Click the image to see the retailer's page</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+
